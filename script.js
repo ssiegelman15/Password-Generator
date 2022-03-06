@@ -48,8 +48,8 @@ function generatePassword() {
   var password = [];
   for (let i = 0; i < userChoice; i++) {
     var index = Math.floor(Math.random() * allCharacters.length);
-    var choice = allCharacters[index];
-    password.push(choice);
+    var character = allCharacters[index];
+    password.push(character);
   }
 
   // Create array of chosen characters in password without any spaces between characters and log to console
