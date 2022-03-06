@@ -18,8 +18,10 @@ function generatePassword() {
 
   console.log(userChoice);
 
+  // Create empty array to fill with characters based on user input
   var allCharacters = [];
 
+  // Request user input to include upper/lower/numbers/special and store chosen characters in allCharacters array
   var useUpper = window.confirm("Would you like to include uppercase letters?");
   if (useUpper) {
     allCharacters = allCharacters.concat(upperCase);
@@ -37,14 +39,18 @@ function generatePassword() {
 
   console.log(allCharacters);
 
+  // Create password using all characters selected by user until desired length of password has been reached
   var password = [];
   for (let i = 0; i < userChoice; i++) {
     var index = Math.floor(Math.random() * allCharacters.length);
     var choice = allCharacters[index];
     password.push(choice);
   }
+
+  // Create array of chosen characters in password without any spaces between characters and log to console
   finalPassword = password.join('');
   console.log(finalPassword);
+  return finalPassword;
 }
 
 
@@ -52,9 +58,7 @@ function generatePassword() {
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
