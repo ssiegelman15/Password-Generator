@@ -69,10 +69,24 @@ function generatePassword() {
     var index = Math.floor(Math.random() * allCharacters.length);
     var character = allCharacters[index];
     password.push(character);
+    console.log(password);
+  }
+
+  // Randomize order of characters in the finalPpassword array
+  lengthArray = Array.from(Array(password.length).keys());
+  timesRandomized = lengthArray.length;
+  randomizedPassword = [];
+  for (let i = timesRandomized; i > 0; i--) {
+    var index = Math.floor(Math.random() * lengthArray.length);
+    var character = password[index];
+    password.splice(index,1);
+    randomizedPassword.push(character);
+    lengthArray.splice(index, 1);
+    console.log(randomizedPassword);
   }
 
   // Create array of chosen characters in password without any spaces between characters and log to console
-  finalPassword = password.join('');
+  finalPassword = randomizedPassword.join('');
   console.log(finalPassword);
   return finalPassword;
 }
