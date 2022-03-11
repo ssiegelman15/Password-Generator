@@ -20,33 +20,52 @@ function generatePassword() {
 
   // Create empty array to fill with characters based on user input
   var allCharacters = [];
+  var guaranteed = [];
 
   // Request user input to include upper/lower/numbers/special and store chosen characters in allCharacters array
   var useUpper = window.confirm("Would you like to include uppercase letters?");
   if (useUpper) {
     allCharacters = allCharacters.concat(upperCase);
+    var index = Math.floor(Math.random() * upperCase.length);
+    var character = upperCase[index];
+    guaranteed.push(character);
   };
 
   var useLower = window.confirm("Would you like to include lowercase letters?");
   if (useLower) {
     allCharacters = allCharacters.concat(lowerCase);
+    var index = Math.floor(Math.random() * lowerCase.length);
+    var character = lowerCase[index];
+    guaranteed.push(character);
   };
 
   var useNumbers = window.confirm("Would you like to include numbers?");
   if (useNumbers) {
     allCharacters = allCharacters.concat(numbers);
+    var index = Math.floor(Math.random() * numbers.length);
+    var character = numbers[index];
+    guaranteed.push(character);
   };
 
   var useCharacters = window.confirm("Would you like to include special characters?");
   if (useCharacters) {
     allCharacters = allCharacters.concat(specialChar);
+    var index = Math.floor(Math.random() * specialChar.length);
+    var character = specialChar[index];
+    guaranteed.push(character);
   };
 
+  console.log(guaranteed);
   console.log(allCharacters);
 
   // Create password using all characters selected by user until desired length of password has been reached
   var password = [];
-  for (let i = 0; i < userChoice; i++) {
+  for (let i = 0; i < guaranteed.length; i++) {
+    password.push(guaranteed[i]);
+  } 
+  console.log(password);
+
+  for (let i = 0; i < (userChoice-guaranteed.length); i++) {
     var index = Math.floor(Math.random() * allCharacters.length);
     var character = allCharacters[index];
     password.push(character);
