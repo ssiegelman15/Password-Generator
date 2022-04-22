@@ -1,4 +1,4 @@
-# Password_Generator-HW-Week3
+# Password Generator
 
 # Link to Webpage
 https://ssiegelman15.github.io/Password_Generator-HW-Week3/
